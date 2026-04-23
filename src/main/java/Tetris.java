@@ -91,9 +91,9 @@ public class Tetris {
 
         CloseWindow();
     }
-
+//LEON MODIFICA QUESTO, PER LA QUEUE DEI PEZZI, MENTRE LA FUNZIONE PER LA TRASPOSIZIONE SRTA IN <<Pezzo.java>>
     private static Pezzo generaNuovoPezzo() {
-        Pezzo p = (Math.random() > 0.5) ? new Elle() : new Stecca();
+        Pezzo p = (Math.random() > 0.5) ? new Elle() : new Ipiss();
         p.x = Griglia.COLONNE / 2 - (p.forma[0].length / 2);
         p.y = 0;
         return p;

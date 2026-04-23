@@ -17,3 +17,64 @@ public abstract class Pezzo {
     }
 
 }
+class Ipiss extends Pezzo {
+    public Ipiss() {
+        this.forma = new int[][]{
+                {0, 0, 0, 0},
+                {1, 1, 1, 1},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}
+        };
+    }
+}
+
+class Elle extends Pezzo {
+    public Elle() {
+        this.forma = new int[][]{
+                {0, 0, 2},
+                {2, 2, 2},
+                {0, 0, 0}
+        };
+    }
+}
+
+
+class RhodeIsland extends Pezzo {
+    public RhodeIsland() {
+        this.forma = new int[][]{
+                {0, 0, 0},
+                {0, 3, 3},
+                {3, 3, 0},
+        };
+    }
+}
+
+class MirrorRhodeIsland extends Pezzo { //On a second thought, this could be mirrored at runtime to not create an extra
+    //class
+    public MirrorRhodeIsland(){
+        this.forma = new int[][]{
+                {0, 0, 0},
+                {4, 4, 0},
+                {0, 4, 4},
+        };
+    }
+}
+
+class Pyramid extends Pezzo{
+    public Pyramid(){
+        this.forma = new int[][]{
+                {0, 0, 0},
+                {0, 5, 0},
+                {5, 5, 5},
+        };
+    }
+}
+
+class QuadratoSan extends Pezzo{
+    public QuadratoSan(){
+        this.forma = new int[][]{
+                {6, 6},
+                {6, 6},
+        };
+    }
+}

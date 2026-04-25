@@ -31,7 +31,8 @@ public class Griglia {
         }
     }
 
-    public void controllaRighe() {
+    public int controllaRighe() {
+        int righeEliminate = 0;
         for (int r = RIGHE - 1; r >= 0; r--) {
             boolean piena = true;
             for (int c = 0; c < COLONNE; c++) {
@@ -46,7 +47,9 @@ public class Griglia {
                 }
                 matrice[0] = new int[COLONNE];
                 r++;
+                righeEliminate++;
             }
         }
+        return righeEliminate;
     }
 }

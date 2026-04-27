@@ -17,8 +17,8 @@ public abstract class Pezzo {
     }
 
 }
-class Ipiss extends Pezzo {
-    public Ipiss() {
+class PieceI extends Pezzo {
+    public PieceI() {
         this.forma = new int[][]{
                 {0, 0, 0, 0},
                 {1, 1, 1, 1},
@@ -28,8 +28,8 @@ class Ipiss extends Pezzo {
     }
 }
 
-class Elle extends Pezzo {
-    public Elle() {
+class PieceL extends Pezzo {
+    public PieceL() {
         this.forma = new int[][]{
                 {0, 0, 2},
                 {2, 2, 2},
@@ -39,8 +39,8 @@ class Elle extends Pezzo {
 }
 
 
-class RhodeIsland extends Pezzo {
-    public RhodeIsland() {
+class PieceS extends Pezzo {
+    public PieceS() {
         this.forma = new int[][]{
                 {0, 0, 0},
                 {0, 3, 3},
@@ -49,9 +49,9 @@ class RhodeIsland extends Pezzo {
     }
 }
 
-class MirrorRhodeIsland extends Pezzo { //On a second thought, this could be mirrored at runtime to not create an extra
+class PieceZ extends Pezzo { //On a second thought, this could be mirrored at runtime to not create an extra
     //class
-    public MirrorRhodeIsland(){
+    public PieceZ(){
         this.forma = new int[][]{
                 {0, 0, 0},
                 {4, 4, 0},
@@ -60,8 +60,8 @@ class MirrorRhodeIsland extends Pezzo { //On a second thought, this could be mir
     }
 }
 
-class Pyramid extends Pezzo{
-    public Pyramid(){
+class PieceT extends Pezzo{
+    public PieceT(){
         this.forma = new int[][]{
                 {0, 0, 0},
                 {0, 5, 0},
@@ -70,8 +70,8 @@ class Pyramid extends Pezzo{
     }
 }
 
-class QuadratoSan extends Pezzo{
-    public QuadratoSan(){
+class PieceO extends Pezzo{
+    public PieceO(){
         this.forma = new int[][]{
                 {6, 6},
                 {6, 6},

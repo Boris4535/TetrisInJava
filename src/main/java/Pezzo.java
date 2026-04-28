@@ -17,6 +17,9 @@ public abstract class Pezzo {
     }
 
 }
+
+class voidPiece extends Pezzo{ public voidPiece(){}}
+
 class PieceI extends Pezzo {
     public PieceI() {
         this.forma = new int[][]{

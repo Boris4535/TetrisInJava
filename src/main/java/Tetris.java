@@ -16,8 +16,10 @@ public class Tetris {
         InitWindow(screenWidth, screenHeight, "Javetris");
         SetTargetFPS(60);
 
+        Pezzo pezzoVuoto = new voidPiece();
         Griglia griglia = new Griglia();
         Pezzo pezzoAttivo = generaNuovoPezzo();
+        Pezzo pezzoTenuto = pezzoVuoto;
 
         float gravityTimer = 0.0f;
         float gravityInterval = 0.5f;
@@ -44,6 +46,18 @@ public class Tetris {
                     pezzoAttivo.ruota();
                     pezzoAttivo.ruota();
                 }
+            }
+
+            if (IsKeyPressed(KEY_LEFT_CONTROL)){
+                if ( pezzoTenuto == pezzoVuoto ){
+                    pezzoTenuto = pezzoAttivo;
+                    pezzoAttivo = generaNuovoPezzo();
+                }
+                Pezzo pTemp =  pezzoAttivo;
+                pezzoAttivo = pezzoTenuto;
+                pezzoTenuto = pTemp;
+                pezzoAttivo.x = Griglia.COLONNE / 2 - (p.forma[0].length / 2);
+                pezzoAttivo.y = 0;
             }
 
             gravityTimer += GetFrameTime();
@@ -108,6 +122,7 @@ public class Tetris {
 
             DrawText("SCORE: " + punteggio, 5, 5, 18, DARKBLUE);
             DrawText("LVL: " + livello,     5, 25, 18, DARKBLUE);
+            DrawText("HOLD: " + pezzoTenuto, 5, 45, 18, DARKBLUE);
 
             EndDrawing();
         }
@@ -152,11 +167,12 @@ public class Tetris {
         return arr2;
     }
     public static char[] CurrentBag = {};
+    public static Pezzo p = new voidPiece();
+
     private static Pezzo generaNuovoPezzo() {
-        if ( CurrentBag == null || CurrentBag.length == 0 ) {
-            CurrentBag = PieceBag();
-        }
-        Pezzo p = new PieceO();
+
+        if ( CurrentBag == null || CurrentBag.length == 0 ) { CurrentBag = PieceBag();}
+
         switch (CurrentBag[0]) {
             case 'I': {
                 p = new PieceI();

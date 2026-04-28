@@ -7,6 +7,11 @@ TO DO:
 - Next piece mechanic
 - Hard drop
 - High score log(local)
+- Combo system
+- wall kick
+- ghost piece
+- PERFECT CLEAR
+  
   
 [LOW PRIORITY]
 - SFX

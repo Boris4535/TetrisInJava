@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.Arrays;
+
 import static com.raylib.Raylib.*;
 import static com.raylib.Colors.*;
 
@@ -111,10 +114,80 @@ public class Tetris {
 
         CloseWindow();
     }
+    private static void shuffleArray(char[] array)
+    {
+        int index;
+        Random random = new Random();
+        for (int i = array.length - 1; i > 0; i--)
+        {
+            index = random.nextInt(i + 1);
+            if (index != i)
+            {
+                array[index] ^= array[i];
+                array[i] ^= array[index];
+                array[index] ^= array[i];
+            }
+        }
+    }
 
-    // LEON MODIFICA QUESTO, PER LA QUEUE DEI PEZZI
+    public static char[] PieceBag(){
+        char[] Bag = {'I', 'J', 'L', 'T', 'S', 'Z', 'O'};
+        shuffleArray(Bag);
+        return Bag;
+    }
+    public static char[] removeFirst(char[] arr) {
+        char[] arr2 = {};
+        if (arr.length == 1) {
+            return arr2;
+        }
+
+        arr2 = new char[arr.length - 1];
+
+        // Copy the elements except the index
+        // from original array to the other array
+        for (int i = 1, k = 0; i < arr.length-1; i++) {
+            arr2[k] = arr[i];
+            k++;
+        }
+        return arr2;
+    }
+    public static char[] CurrentBag = {};
     private static Pezzo generaNuovoPezzo() {
-        Pezzo p = (Math.random() > 0.5) ? new Elle() : new Ipiss();
+        if ( CurrentBag == null || CurrentBag.length == 0 ) {
+            CurrentBag = PieceBag();
+        }
+        Pezzo p = new PieceO();
+        switch (CurrentBag[0]) {
+            case 'I': {
+                p = new PieceI();
+                break;
+            }
+            case 'J': {
+                p = new PieceJ();
+                break;
+            }
+            case 'L': {
+                p = new PieceL();
+                break;
+            }
+            case 'T': {
+                p = new PieceT();
+                break;
+            }
+            case 'S': {
+                p = new PieceS();
+                break;
+            }
+            case 'Z': {
+                p = new PieceZ();
+                break;
+            }
+            case 'O': {
+                p = new PieceO();
+                break;
+            }
+        }
+        CurrentBag = removeFirst(CurrentBag);
         p.x = Griglia.COLONNE / 2 - (p.forma[0].length / 2);
         p.y = 0;
         return p;

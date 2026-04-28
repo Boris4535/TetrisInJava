@@ -78,3 +78,12 @@ class PieceO extends Pezzo{
         };
     }
 }
+class PieceJ extends Pezzo {
+    public PieceJ() {
+        this.forma = new int[][]{
+                {7, 0, 0},
+                {7, 7, 7},
+                {0, 0, 0}
+        };
+    }
+}

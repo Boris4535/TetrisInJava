@@ -3,7 +3,7 @@ TO DO:
 
 [HIGH PRIORITY]
 - SRS (super rotation system)
-- Hold mechanic
+- Hold mechanic [Basic implementation: Done]
 - Next piece mechanic
 - Hard drop
 - High score log(local)

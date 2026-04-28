@@ -1,11 +1,13 @@
 Uni project, creating tetris in Java, i used jaylib 
 TO DO:
+
 [HIGH PRIORITY]
 - SRS (super rotation system)
 - Hold mechanic
 - Next piece mechanic
 - Hard drop
 - High score log(local)
+  
 [LOW PRIORITY]
 - SFX
 - VFXs (Line clear, hard drop screenshake)

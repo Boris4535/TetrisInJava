@@ -1,0 +1,16 @@
+Un bug nella funzione precedente, sostanzialmente andava sempre a non copiare / cancellare(?)
+L'ultimo pezzo, quindi spesso andava a mancare (o almeno così credo).
+
+La filosofia della bag, utilizzando la linkedlist permette di avere questa <<Catena>> sempre viva, risulta anche
+leggermente più efficiente a livello computazionale (meno copy-writing)
+
+Adesso le collisioni dovrebbero esse handled better oltretutto.
+
+
+
+TODO:
+Sistemare le funzioni, mettere tutto nelle classi, adesso il main sta diventando codice procedurale e NON va bene NYA.
+
+
+-Else:
+     Cambiato colori

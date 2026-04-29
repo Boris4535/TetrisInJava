@@ -16,6 +16,7 @@ public class Tetris {
         InitWindow(screenWidth, screenHeight, "Javetris");
         SetTargetFPS(60);
 
+        boolean canSwap = true;
         Pezzo pezzoVuoto = new voidPiece();
         Griglia griglia = new Griglia();
         Pezzo pezzoAttivo = generaNuovoPezzo();
@@ -47,11 +48,13 @@ public class Tetris {
                     pezzoAttivo.ruota();
                 }
             }
-
-            if (IsKeyPressed(KEY_LEFT_CONTROL)){
+            // Hold mechanic
+            if (IsKeyPressed(KEY_LEFT_CONTROL) && canSwap){
+                canSwap = false;
                 if ( pezzoTenuto == pezzoVuoto ){
                     pezzoTenuto = pezzoAttivo;
                     pezzoAttivo = generaNuovoPezzo();
+                    continue;
                 }
                 Pezzo pTemp =  pezzoAttivo;
                 pezzoAttivo = pezzoTenuto;
@@ -77,6 +80,7 @@ public class Tetris {
                     }
 
                     pezzoAttivo = generaNuovoPezzo();
+                    canSwap = true;
 
                     if (griglia.collisione(pezzoAttivo, pezzoAttivo.x, pezzoAttivo.y)) {
                         System.out.println("GAME OVER! Punteggio finale: " + punteggio);
@@ -120,6 +124,7 @@ public class Tetris {
                 }
             }
 
+            //UI
             DrawText("SCORE: " + punteggio, 5, 5, 18, DARKBLUE);
             DrawText("LVL: " + livello,     5, 25, 18, DARKBLUE);
             DrawText("HOLD: " + pezzoTenuto, 5, 45, 18, DARKBLUE);

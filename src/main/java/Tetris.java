@@ -46,13 +46,32 @@ public class Tetris {
             if (IsKeyPressed(KEY_S) || IsKeyPressed(KEY_DOWN)) {
                 if (!griglia.collisione(pezzoAttivo, pezzoAttivo.x, pezzoAttivo.y + 1)) pezzoAttivo.y++;
             }
-            if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_UP)) {
+
+            /*if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_UP)) {
                 pezzoAttivo.ruota();
                 if (griglia.collisione(pezzoAttivo, pezzoAttivo.x, pezzoAttivo.y)) {
 
                     pezzoAttivo.ruota();
                     pezzoAttivo.ruota();
                     pezzoAttivo.ruota();
+                }
+            }*/
+
+            if (IsKeyPressed(KEY_J) || IsKeyPressed(KEY_Z)){
+                pezzoAttivo.ruotaOrar();
+                if (griglia.collisione(pezzoAttivo, pezzoAttivo.x, pezzoAttivo.y)) {
+                    pezzoAttivo.ruotaOrar();
+                    pezzoAttivo.ruotaOrar();
+                    pezzoAttivo.ruotaOrar();
+                }
+            }
+
+            if (IsKeyPressed(KEY_K) || IsKeyPressed(KEY_X)){
+                    pezzoAttivo.ruotaAntiOr();
+                if (griglia.collisione(pezzoAttivo, pezzoAttivo.x, pezzoAttivo.y)) {
+                    pezzoAttivo.ruotaAntiOr();
+                    pezzoAttivo.ruotaAntiOr();
+                    pezzoAttivo.ruotaAntiOr();
                 }
             }
            //MEccanica dell'holdare

@@ -4,8 +4,8 @@ TO DO:
 [HIGH PRIORITY]
 - SRS (super rotation system)
 - Hold mechanic [Basic implementation: Done]
-- Next piece mechanic
-- Hard drop
+- Next piece mechanic [DONE]
+- Hard drop [DONE]
 - High score log(local)
 - Combo system
 - wall kick
@@ -16,7 +16,7 @@ TO DO:
 [LOW PRIORITY]
 - SFX
 - VFXs (Line clear, hard drop screenshake)
-- Colors and Themes
+- Colors and Themes [Tetrimino colors added]
 - Chiptune BG music
 - Line clear voicelines
 - Menu screen & settings (Binding controls, volume)

@@ -43,8 +43,14 @@ public class Tetris {
             if (IsKeyPressed(KEY_D) || IsKeyPressed(KEY_RIGHT)) {
                 if (!griglia.collisione(pezzoAttivo, pezzoAttivo.x + 1, pezzoAttivo.y)) pezzoAttivo.x++;
             }
-            if (IsKeyPressed(KEY_S) || IsKeyPressed(KEY_DOWN)) {
+            if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) {
                 if (!griglia.collisione(pezzoAttivo, pezzoAttivo.x, pezzoAttivo.y + 1)) pezzoAttivo.y++;
+            }
+            // Hard drop
+            if (IsKeyPressed(KEY_SPACE)){
+                while(!griglia.collisione(pezzoAttivo, pezzoAttivo.x, pezzoAttivo.y + 1)){
+                    pezzoAttivo.y++;
+                }
             }
 
             /*if (IsKeyPressed(KEY_W) || IsKeyPressed(KEY_UP)) {

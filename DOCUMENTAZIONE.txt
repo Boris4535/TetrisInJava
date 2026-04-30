@@ -1,0 +1,6 @@
+Rendering: SI, ogni cosa viene ridisegnata per ogni frame. Sembra inefficiente sulla carta, ma è molto negligibile(?)
+Ho scoperto che per i giochi 2D viene fatto spesso, anche per giochi più complessi di tetris. Inoltre, le funzioni di raylib so letteralmente così quindi ciccia.
+È lo standard. [stacce].
+
+il resto lo scrivo nel code
+

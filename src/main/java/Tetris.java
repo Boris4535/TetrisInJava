@@ -95,7 +95,7 @@ public class Tetris {
                     pezzoAttivo.y = 0;
                 }
             }
-
+           //Abbastanza self explanatory, la gravità si accumula, e superata una soglia fa colare il pezzo in basso
             gravityTimer += GetFrameTime();
             if (gravityTimer >= gravityInterval) {
                 if (!griglia.collisione(pezzoAttivo, pezzoAttivo.x, pezzoAttivo.y + 1)) {
@@ -123,18 +123,20 @@ public class Tetris {
                 gravityTimer = 0.0f;
             }
         //Griglia, UI  e mazzate varie
+
+            // Sfondo
             BeginDrawing();
             ClearBackground(DARKGRAY);
 
             DrawRectangle(0, 0, playfieldWidth, screenHeight, BLACK);
-
+           //Righe sopra lo sfondo
             for (int i = 0; i <= playfieldWidth; i += CELL_SIZE) {
                 DrawLine(i, 0, i, screenHeight, Fade(DARKGRAY, 0.5f));
             }
             for (int i = 0; i <= screenHeight; i += CELL_SIZE) {
                 DrawLine(0, i, playfieldWidth, i, Fade(DARKGRAY, 0.5f));
             }
-
+           //Disegno le celle fissate
             for (int r = 0; r < Griglia.RIGHE; r++) {
                 for (int c = 0; c < Griglia.COLONNE; c++) {
                     int val = griglia.getValore(r, c);
@@ -143,7 +145,7 @@ public class Tetris {
                     }
                 }
             }
-
+           // Disegno i pezzi che colano
             for (int r = 0; r < pezzoAttivo.forma.length; r++) {
                 for (int c = 0; c < pezzoAttivo.forma[r].length; c++) {
                     int val = pezzoAttivo.forma[r][c];
@@ -152,11 +154,11 @@ public class Tetris {
                     }
                 }
             }
-
+           //Divisore
             DrawRectangle(playfieldWidth, 0, 4, screenHeight, LIGHTGRAY);
 
             int uiX = playfieldWidth + 20;
-
+           //UI di dx
             DrawText("SCORE", uiX, 20, 20, LIGHTGRAY);
             DrawText(String.valueOf(punteggio), uiX, 45, 20, GREEN);
 
@@ -195,7 +197,7 @@ public class Tetris {
         p.y = 0;
         return p;
     }
-
+    //Qui disegno i pezzi
     private static void drawRetroBlock(int x, int y, Color baseColor, int size) {
         DrawRectangle(x, y, size, size, baseColor);
 
@@ -205,7 +207,7 @@ public class Tetris {
         DrawLine(x, y + size, x + size, y + size, Fade(BLACK, 0.4f));
         DrawLine(x + size, y, x + size, y + size, Fade(BLACK, 0.4f));
     }
-
+  //Qui i pezzi che compaiono sulla UI
     private static void drawPieceUI(Pezzo p, int startX, int startY) {
         if (p == null || p instanceof voidPiece) return;
         int miniSize = 20;
